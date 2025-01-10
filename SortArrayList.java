@@ -3,9 +3,44 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
+class Students
+{
+  String name;
+  int age;
+  public Students(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+  public String toString() {
+    return "Students [name=" + name + ", age=" + age + "]";
+  }
+}
 public class SortArrayList {
   
   public static void main(String[] args) {
+
+    List<Students> students = new ArrayList<>();
+    students.add(new Students("paul", 13));
+    students.add(new Students("peace", 23));
+    students.add(new Students("marvel", 2));
+    students.add(new Students("chimamaka", 43));
+    students.add(new Students("peter", 203));
+    students.add(new Students("james", 237));
+
+
+    Comparator<Students> cm = new Comparator<Students>() {
+
+      public int compare(Students o1, Students o2) {
+        if(o1.age > o2.age)
+          return 1;
+        else
+          return -1;
+      }
+    };
+
+    Collections.sort(students, cm);
+
     List<Integer> numbs = new ArrayList<>();
     numbs.add(730);
     numbs.add(568);
@@ -55,5 +90,7 @@ public class SortArrayList {
 
     Collections.sort(stud, cc);
     System.out.println(stud);
+
+    
   }
 }
