@@ -29,15 +29,12 @@ public class SortArrayList {
     students.add(new Students("james", 237));
 
 
-    Comparator<Students> cm = new Comparator<Students>() {
-
-      public int compare(Students o1, Students o2) {
-        if(o1.age > o2.age)
-          return 1;
-        else
-          return -1;
-      }
-    };
+    Comparator<Students> cm = (o1, o2) -> o1.age > o2.age ? 1 : -1;
+    // System.out.println(students);
+    for (Students s : students) {
+      System.out.println(s);
+      
+    }
 
     Collections.sort(students, cm);
 
